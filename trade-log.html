@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRYPE – Registro de operaciones</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>CRYPE</h1>
+      <div class="subtitle">Smart Trading Assistant</div>
+    </div>
+    <button onclick="logout()" style="background-color:#dc3545; color:#fff; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Salir</button>
+  </header>
+  <aside class="sidebar">
+    <ul>
+      <li onclick="navigate('dashboard')">Dashboard</li>
+      <li class="active" onclick="navigate('trade-log')">Registro de operaciones</li>
+      <li id="adminMenu" style="display:none;" onclick="navigate('admin')">Usuarios</li>
+    </ul>
+  </aside>
+  <main class="content">
+    <h2>Registrar opción</h2>
+    <form id="tradeForm" class="log-form">
+      <input type="date" id="tradeDate" required>
+      <select id="tradeSymbol" required>
+        <option value="BTC-USD">BTC/USDT</option>
+        <option value="ETH-USD">ETH/USDT</option>
+        <option value="EURUSD=X">EUR/USD</option>
+        <option value="GC=F">ORO</option>
+        <option value="^IXIC">NASDAQ</option>
+        <option value="^GSPC">SP500</option>
+      </select>
+      <select id="tradeType" required>
+        <option value="Compra">Compra</option>
+        <option value="Venta">Venta</option>
+      </select>
+      <input type="number" step="0.0001" id="entryPrice" placeholder="Precio de entrada" required>
+      <input type="number" step="0.0001" id="exitPrice" placeholder="Precio de salida" required>
+      <input type="number" step="0.0001" id="amount" placeholder="Cantidad invertida" required>
+      <input type="number" step="0.0001" id="commission" placeholder="Comisión (opcional)">
+      <textarea id="notes" rows="2" placeholder="Notas"></textarea>
+      <button type="submit">Guardar operación</button>
+    </form>
+    <h2>Historial</h2>
+    <div class="table-container">
+      <table id="tradeTable">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Par</th>
+            <th>Tipo</th>
+            <th>Entrada</th>
+            <th>Salida</th>
+            <th>Inversión</th>
+            <th>Ganancia/Pérdida</th>
+            <th>ROI (%)</th>
+            <th>Balance acumulado</th>
+          </tr>
+        </thead>
+        <tbody id="tradeRows">
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <script src="js/app.js"></script>
+  <script src="js/tradeLog.js"></script>
+</body>
+</html>
