@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRYPE – Administración de usuarios</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header showing the platform name and logout button -->
+  <header class="header">
+    <div>
+      <h1>CRYPE</h1>
+      <div class="subtitle">Smart Trading Assistant</div>
+    </div>
+    <button onclick="logout()" style="background-color:#dc3545; color:#fff; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Salir</button>
+  </header>
+  <!-- Sidebar navigation -->
+  <aside class="sidebar">
+    <ul>
+      <li onclick="navigate('dashboard')">Dashboard</li>
+      <li onclick="navigate('trade-log')">Registro de operaciones</li>
+      <li class="active" onclick="navigate('admin')">Usuarios</li>
+    </ul>
+  </aside>
+  <!-- Main content area -->
+  <main class="content">
+    <h2>Administrar usuarios</h2>
+    <p>Como administrador puedes crear y eliminar usuarios. El usuario actual no puede eliminarse a sí mismo.</p>
+    <!-- Form to create a new user -->
+    <form id="createUserForm" class="log-form" style="margin-bottom:20px;">
+      <input type="text" id="newUsername" placeholder="Nombre de usuario" required>
+      <input type="password" id="newPassword" placeholder="Contraseña" required>
+      <select id="newRole">
+        <option value="user">Usuario</option>
+        <option value="admin">Administrador</option>
+      </select>
+      <button type="submit">Crear usuario</button>
+    </form>
+    <!-- Table showing existing users -->
+    <div class="table-container">
+      <table id="userTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Usuario</th>
+            <th>Rol</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="userRows">
+        </tbody>
+      </table>
+    </div>
+  </main>
+  <!-- Scripts -->
+  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
