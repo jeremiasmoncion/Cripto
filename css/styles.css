@@ -1,0 +1,176 @@
+css/styles.css/*
+ * Global stylesheet for the CRYPE frontend.  The design aims to mimic
+ * professional trading platforms with a dark theme and clear visual
+ * hierarchy.  Colours are chosen to indicate bullish (green), bearish
+ * (red) and neutral (yellow) signals.  The layout is responsive: media
+ * queries adjust the sidebar and panels for smaller screens.
+ */
+
+/* Reset some basic elements */
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #eee;
+  height: 100%;
+}
+
+a {
+  color: #8ab4f8;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+.header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #f1f1f1;
+}
+.header .subtitle {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 200px;
+  background-color: #1c1c1c;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+  position: fixed;
+  top: 50px;
+  left: 0;
+  border-right: 1px solid #333;
+  padding-top: 20px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar li {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #ccc;
+}
+.sidebar li:hover, .sidebar li.active {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Main content area */
+.content {
+  margin-left: 200px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 50px);
+  overflow-y: auto;
+}
+
+/* Dashboard layout */
+.dashboard-top {
+  display: flex;
+  flex: 1;
+}
+.chart-container {
+  flex: 2;
+  background-color: #121212;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #333;
+}
+.analysis-panel {
+  flex: 1;
+  background-color: #121212;
+  padding: 10px;
+  border: 1px solid #333;
+}
+.recommendation-panel {
+  margin-top: 10px;
+  background-color: #121212;
+  padding: 10px;
+  border: 1px solid #333;
+}
+
+.analysis-item {
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Trading log styles */
+.log-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+.log-form input, .log-form select, .log-form textarea {
+  padding: 8px;
+  background-color: #222;
+  color: #eee;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+.log-form button {
+  background-color: #28a745;
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.log-form button:hover {
+  background-color: #218838;
+}
+
+/* Table styles */
+.table-container {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #eee;
+}
+th, td {
+  padding: 8px;
+  border: 1px solid #333;
+  text-align: left;
+}
+th {
+  background-color: #222;
+}
+tr:nth-child(even) {
+  background-color: #1b1b1b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 150px;
+  }
+  .content {
+    margin-left: 150px;
+  }
+  .dashboard-top {
+    flex-direction: column;
+  }
+  .chart-container, .analysis-panel {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}
