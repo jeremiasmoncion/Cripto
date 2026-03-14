@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRYPE – Iniciar sesión</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>CRYPE</h1>
+      <div class="subtitle">Smart Trading Assistant</div>
+    </div>
+  </header>
+  <main style="display:flex; justify-content:center; align-items:center; height:calc(100vh - 50px);">
+    <form id="loginForm" style="background-color:#1c1c1c; padding:20px; border:1px solid #333; border-radius:8px; width:300px;">
+      <h2 style="color:#f1f1f1; text-align:center;">Iniciar sesión</h2>
+      <div style="margin-bottom:10px;">
+        <label>Usuario</label><br>
+        <input type="text" id="username" required style="width:100%; padding:8px; background-color:#222; color:#eee; border:1px solid #333; border-radius:4px;">
+      </div>
+      <div style="margin-bottom:10px;">
+        <label>Contraseña</label><br>
+        <input type="password" id="password" required style="width:100%; padding:8px; background-color:#222; color:#eee; border:1px solid #333; border-radius:4px;">
+      </div>
+      <button type="submit" style="width:100%; padding:10px; background-color:#0066cc; color:#fff; border:none; border-radius:4px; cursor:pointer;">Entrar</button>
+      <p id="loginError" style="color:#ff6b6b; display:none; margin-top:10px;">Error de autenticación</p>
+    </form>
+  </main>
+  <script src="js/app.js"></script>
+</body>
+</html>
