@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRYPE – Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Lightweight Charts library -->
+  <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div>
+      <h1>CRYPE</h1>
+      <div class="subtitle">Smart Trading Assistant</div>
+    </div>
+    <button onclick="logout()" style="background-color:#dc3545; color:#fff; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Salir</button>
+  </header>
+  <aside class="sidebar">
+    <ul>
+      <li class="active" onclick="navigate('dashboard')">Dashboard</li>
+      <li onclick="navigate('trade-log')">Registro de operaciones</li>
+      <li id="adminMenu" style="display:none;" onclick="navigate('admin')">Usuarios</li>
+    </ul>
+  </aside>
+  <main class="content">
+    <div class="dashboard-top">
+      <div class="chart-container">
+        <div style="margin-bottom:10px; display:flex; flex-wrap:wrap; gap:10px; align-items:center;">
+          <label>Par:</label>
+          <select id="symbolSelect" style="background-color:#222; color:#eee; border:1px solid #333; border-radius:4px; padding:4px;">
+            <option value="BTC-USD">BTC/USDT</option>
+            <option value="ETH-USD">ETH/USDT</option>
+            <option value="EURUSD=X">EUR/USD</option>
+            <option value="GC=F">ORO</option>
+            <option value="^IXIC">NASDAQ</option>
+            <option value="^GSPC">SP500</option>
+          </select>
+          <label>Intervalo:</label>
+          <select id="intervalSelect" style="background-color:#222; color:#eee; border:1px solid #333; border-radius:4px; padding:4px;">
+            <option value="1m">1m</option>
+            <option value="5m">5m</option>
+            <option value="15m">15m</option>
+            <option value="60m">1H</option>
+            <option value="4h">4H</option>
+            <option value="1d" selected>1D</option>
+          </select>
+          <button id="updateBtn" style="background-color:#17a2b8; color:#fff; border:none; padding:6px 12px; border-radius:4px; cursor:pointer;">Actualizar</button>
+        </div>
+        <div id="chart" style="width:100%; height:400px;"></div>
+      </div>
+      <div class="analysis-panel">
+        <h3>Análisis técnico</h3>
+        <div id="analysisDetails"></div>
+      </div>
+    </div>
+    <div class="recommendation-panel">
+      <h3>Recomendación</h3>
+      <div id="recommendationDetails"></div>
+    </div>
+  </main>
+  <script src="js/app.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
